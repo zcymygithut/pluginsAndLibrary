@@ -21,5 +21,17 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
     },
+    {
+      path: '/echarts',
+      name: 'echarts',
+      component: () => import(/* webpackChunkName: "echarts" */ './views/Echarts.vue'),
+      children:[
+        {
+          path: '/echarts/line',
+          name: 'line',
+          component: () => import(/* webpackChunkName: "echarts" */ './views/echarts/line-chart.vue')
+        }
+      ]
+    }
   ],
 });
